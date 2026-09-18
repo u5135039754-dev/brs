@@ -1,0 +1,72 @@
+@use 'sass:color';
+@use './variables' as *;
+
+@mixin on-tablet {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline(
+  $mobile: 20px,
+  $tablet: 40px,
+  $desktop: 0,
+  $desktop-max-width: 1100px
+) {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: $mobile;
+
+  @include on-tablet {
+    padding-inline: $tablet;
+  }
+
+  @include on-desktop {
+    max-width: $desktop-max-width;
+    padding-inline: $desktop;
+  }
+}
+
+@mixin page-grid(
+  $mobile-columns: 4,
+  $tablet-columns: 8,
+  $desktop-columns: 12,
+  $mobile-gap: 20px,
+  $tablet-gap: 24px,
+  $desktop-gap: 24px
+) {
+  display: grid;
+  grid-template-columns: repeat($mobile-columns, minmax(0, 1fr));
+  gap: $mobile-gap;
+
+  @include on-tablet {
+    grid-template-columns: repeat($tablet-columns, minmax(0, 1fr));
+    gap: $tablet-gap;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat($desktop-columns, minmax(0, 1fr));
+    gap: $desktop-gap;
+  }
+}
+
+@mixin hover($property, $to-value, $duration: 0.3s) {
+  transition: #{$property} #{$duration};
+
+  &:hover {
+    #{$property}: $to-value;
+  }
+}
+
+@mixin focus-ring($color: $color-text-primary, $offset: 2px) {
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: $offset;
+  }
+}

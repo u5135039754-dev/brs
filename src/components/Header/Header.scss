@@ -1,0 +1,60 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  
+  background: $color-bg-card;
+
+  &__container {
+    width: 100%;
+  }
+
+  &__vsc {
+    color: $color-text-secondary;
+    font-family: "Roboto Mono";
+    font-size: 13px;
+    font-weight: 400;
+
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    padding-inline: 12px;
+  }
+
+  &__span {
+    color: $color-text-muted;
+    font-family: "Roboto Mono";
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  &__vectors {
+    display: flex;
+    width: 138px;
+    height: 40px;
+    align-items: center;
+  }
+
+  &__vector {
+    &-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 46px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 4px;
+
+      cursor: pointer;
+
+      @include hover(background-color, $color-bg-elevated, 0.2s);
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@use 'variables' as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  color: $color-text-primary;
+  font-family: $font-heading, sans-serif;
+}
+
+body {
+  background-color: $color-bg-page;
+}
+
+// Scroll/entrance reveal animation, driven by the useReveal hook toggling
+// the `--visible` modifier once an element's IntersectionObserver fires.
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Same idea, applied to a container so its direct children cascade in with
+// a staggered delay instead of all animating at once.
+.reveal-group {
+  > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  &--visible > * {
+    opacity: 1;
+    transform: translateY(0);
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{($i - 1) * 80}ms;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-group > * {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

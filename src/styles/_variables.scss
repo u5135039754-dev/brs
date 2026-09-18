@@ -1,0 +1,39 @@
+// Breakpoints
+$breakpoint-desktop: 1200px; // audited portfolio width
+$breakpoint-tablet: 768px; // tablet breakpoint
+
+// ---- Text ----
+$color-text-primary:   #E6EDF3; // headings and primary content
+$color-text-secondary: #8B949E; // descriptions, metadata, labels
+$color-text-muted:     #6E7681; // line numbers and subdued UI
+$color-text-link:      #81A6FF; // GitHub links
+
+// ---- Surfaces / backgrounds ----
+$color-bg-page:        #0D1117; // primary dark background
+$color-bg-section:     #111827; // About, Skills and Contact sections
+$color-bg-card:        #161B22; // cards, editor chrome and panels
+$color-bg-card-alt:    #161B23; // skill cards
+$color-bg-elevated:    #1C2333; // tabs, tags and elevated elements
+$color-bg-tab:         #151A22; // tab backgrounds
+
+// ---- Borders / lines ----
+$color-border:         #30363D; // standard borders and dividers
+$color-border-muted:   rgba(48, 54, 61, 0.5); // subtle tile borders
+$color-brand-react-tile: #1E232D; // React tile background
+
+// ---- Accents / syntax colors ----
+$color-accent-blue:    #82AAFF; // active states, role text and cursor
+$color-accent-green:   #C3E88D; // comments, status and project labels
+$color-accent-orange:  #F78C6C; // contact and layout accents
+$color-accent-purple:  #C792EA; // section labels and team-project accents
+$color-accent-cyan:    #61D1F1; // React highlights
+
+// ---- Typography ----
+$font-heading: "Inter", sans-serif;
+$font-body:    "Inter", sans-serif;
+$font-mono:    "Roboto Mono", monospace;
+
+$font-weight-regular: 400;
+$font-weight-medium:  500;
+$font-weight-bold:    700;
+$font-weight-black:   900;

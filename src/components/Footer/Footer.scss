@@ -1,0 +1,139 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.footer {
+  border-top: 1px solid $color-border;
+  background: $color-bg-section;
+  
+  &__container {
+    @include content-padding-inline;
+
+    display: flex;
+    padding-block: 44px 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    align-self: stretch;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+  }
+
+  &__sub {
+    color: $color-accent-orange;
+    font-family: "Roboto Mono";
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  &__title {
+    color: $color-text-primary;
+    font-family: "Roboto Mono";
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    color: $color-accent-green;
+    font-family: "Roboto Mono";
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    align-self: stretch;
+
+    @include on-tablet {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 24px;
+    }
+  }
+
+  &__block {
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+
+    border-radius: 10px;
+    border: 1px solid $color-border;
+    background: $color-bg-card;
+    transition: border-color 0.2s, background-color 0.2s;
+
+    text-decoration: none;
+
+    @include focus-ring($color-accent-orange, 2px);
+
+    &:hover {
+      border-color: $color-text-secondary;
+      background: $color-bg-elevated;
+    }
+
+    &-name {
+      font-family: "Roboto Mono";
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: undefined;
+      text-transform: uppercase;
+
+      &--blue {
+        color: $color-accent-blue;
+      }
+
+      &--purple {
+        color: $color-accent-purple;
+      }
+
+      &--orange {
+        color: $color-accent-orange;
+      }
+    }
+  }
+
+  &__link {
+    align-self: stretch;
+
+    color: $color-text-primary;
+    font-family: "Roboto Mono";
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  &__bottom {
+    display: flex;
+    padding-top: 24px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+
+    border-top: 1px solid $color-border;
+  }
+
+  &__branch {
+    color: $color-text-secondary;
+    font-family: "Roboto Mono";
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  &__info {
+    color: $color-text-muted;
+    font-family: "Roboto Mono";
+    font-size: 12px;
+    font-weight: 400;
+  }
+}

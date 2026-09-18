@@ -1,0 +1,7 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  // a hard cap, not min-height: flex descendants need a definite height to scroll
+  // internally against; overflowing content still isn't clipped, so the page scrolls as normal
+  height: 100vh;
+}

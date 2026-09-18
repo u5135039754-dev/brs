@@ -1,0 +1,206 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.work {
+  @include content-padding-inline;
+
+  padding-block: 48px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  align-self: stretch;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+  }
+
+  &__sub {
+    color: $color-accent-green;
+    font-family: "Roboto Mono";
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  &__title {
+    color: $color-text-primary;
+    font-family: "Roboto Mono";
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    color: $color-text-muted;
+    font-family: "Roboto Mono";
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    align-self: stretch;
+
+    @include on-desktop {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 32px;
+    }
+  }
+
+  &__project {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+
+    border-radius: 16px;
+    border: 1px solid $color-border;
+    background: $color-bg-card;
+    box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.19);
+
+    @include on-desktop {
+      height: 320px;
+    }
+
+    &-top {
+      display: flex;
+      height: 44px;
+      padding: 0 16px;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      align-self: stretch;
+
+      background: $color-bg-elevated;
+
+      border-radius: 8px;
+
+      &--blue {
+        border-top: 2px solid $color-accent-blue;
+      }
+
+      &--purple {
+        border-top: 2px solid $color-accent-purple;
+      }
+
+      &--orange {
+        border-top: 2px solid $color-accent-orange;
+      }
+
+      &-title {
+        color: $color-text-primary;
+        font-family: "Roboto Mono";
+        font-size: 13px;
+        font-weight: 400;
+      }
+
+      &-button {
+        color: $color-text-muted;
+        font-family: "Roboto Mono";
+        font-size: 13px;
+        font-weight: 400;
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      padding: 24px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      flex: 1 0 0;
+      align-self: stretch;
+    }
+
+    &-quantity {
+      font-family: "Roboto Mono";
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: undefined;
+      text-transform: uppercase;
+
+      &--blue {
+        color: $color-accent-blue;
+      }
+
+      &--purple {
+        color: $color-accent-purple;
+      }
+
+      &--orange {
+        color: $color-accent-orange;
+      }
+    }
+
+    &-title {
+      align-self: stretch;
+
+      color: $color-text-primary;
+      font-family: "Roboto Mono";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 135%;
+    }
+
+    &-description {
+      align-self: stretch;
+
+      color: $color-accent-green;
+      font-family: "Roboto Mono";
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
+    }
+
+    &-langUsed {
+      display: flex;
+      align-items: flex-start;
+      align-content: flex-start;
+      gap: 8px;
+      align-self: stretch;
+      flex-wrap: wrap;
+    }
+
+    &-lang {
+      display: flex;
+      padding: 6px 10px;
+      flex-direction: column;
+      align-items: flex-start;
+
+      border-radius: 6px;
+      background: $color-bg-elevated;
+
+      color: $color-text-secondary;
+      font-family: "Roboto Mono";
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    &-git {
+      color: $color-text-link;
+      font-family: "Roboto Mono";
+      font-size: 13px;
+      font-weight: 400;
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-skip-ink: auto;
+      text-decoration-thickness: auto;
+      text-underline-offset: auto;
+      text-underline-position: from-font;
+      border-radius: 2px;
+
+      @include hover(color, $color-text-primary, 0.2s);
+      @include focus-ring($color-accent-blue, 2px);
+    }
+  }
+}

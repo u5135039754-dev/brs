@@ -1,0 +1,110 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+@keyframes scratchpad-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scratchpad {
+  display: flex;
+  flex-direction: column;
+  flex: 1; // fills the remaining space of .main, which gets its height from flex-grow rather than an explicit height
+  min-height: 0;
+
+  // Replays on every mount, i.e. every time a scratch tab is switched in.
+  animation: scratchpad-in 0.35s ease-out;
+
+  &__workbench {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+
+    background: $color-bg-page;
+  }
+
+  &__editor-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    height: 28px;
+    padding: 0 16px;
+    flex-shrink: 0;
+    gap: 8px;
+
+    border-bottom: 1px solid $color-border;
+
+    color: $color-text-secondary;
+    font-family: "Roboto Mono";
+    font-size: 12px;
+    font-weight: 400;
+
+    &-item {
+      color: $color-text-primary;
+    }
+  }
+
+  &__editor {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+
+    .cm-scroller {
+      scrollbar-width: none; // Firefox
+      -ms-overflow-style: none; // legacy Edge
+
+      &::-webkit-scrollbar {
+        display: none; // Chrome, Safari, Chromium Edge
+      }
+    }
+  }
+
+  &__statusbar {
+    display: flex;
+    height: 22px;
+    padding: 0 12px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+
+    background: $color-bg-tab;
+    border-top: 1px solid $color-border;
+
+    animation: scratchpad-in 0.35s ease-out 0.1s backwards;
+  }
+
+  &__statusbar-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__statusbar-item {
+    color: $color-text-secondary;
+    font-family: "Roboto Mono";
+    font-size: 11px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scratchpad,
+  .scratchpad__statusbar {
+    animation: none;
+  }
+}
