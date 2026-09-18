@@ -5,7 +5,7 @@ import Home from './pages/Home';
 
 export function Root() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/brs">
       <ToastProvider>
         <Routes>
           <Route path="/" element={<App />}>
